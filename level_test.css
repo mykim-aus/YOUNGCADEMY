@@ -69,6 +69,9 @@ header {
     cursor: pointer;
 }
 
+.btn:hover{
+    background: linear-gradient(180deg, #d53369 0%, #daae51 100%);
+}
 
 .code {
     font-size: 14px;
@@ -91,6 +94,7 @@ header {
     font-size: 20px;
     font-weight: 400;
 }
+
 
 @media ( max-width: 768px ) {
     #footer-banner {
