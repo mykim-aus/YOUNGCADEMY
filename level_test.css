@@ -117,6 +117,10 @@ header {
     font-weight: bold;
 }
 
+#test-question {
+    max-width: 500px;
+}
+
 @media ( max-width: 768px ) {
     #yotube-video {
         width: 100%;
