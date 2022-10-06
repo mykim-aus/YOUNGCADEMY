@@ -101,6 +101,10 @@ header {
 }
 
 @media ( max-width: 768px ) {
+    #yotube-video {
+        width: 100%;
+    }
+    
     #footer-banner {
         position: fixed;
         bottom: 0;
