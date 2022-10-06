@@ -69,9 +69,6 @@ header {
     cursor: pointer;
 }
 
-.btn:hover{
-    background: linear-gradient(180deg, #d53369 0%, #daae51 100%);
-}
 
 .code {
     font-size: 14px;
@@ -106,4 +103,8 @@ header {
         max-height: 300px;
         width: 100%;
     }
+}
+
+@media (hover: hover) {
+	.btn:hover { background: linear-gradient(180deg, #d53369 0%, #daae51 100%); }
 }
