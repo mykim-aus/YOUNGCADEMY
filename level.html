@@ -60,8 +60,9 @@
           
         </div>
       </div>
-      <h1>개발자 구글링 꿀팁 영상</h1>
+      
       <a class="start-btn btn-pink" href="https://youngcade.me/level.html">다른 테스트 하기</a>
+      <h1>개발자 구글링 꿀팁 영상</h1>
       <iframe id="yotube-video" style="padding:10px;" width="768" height="315" src="https://www.youtube.com/embed/oDkJAKRof5c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <a id="footer-banner" href="https://youngcade.me/"><img src="young.gif"/></a>
     </div>
@@ -443,7 +444,7 @@
 
       let result_html = ""
       no_answers.map((item)=>{
-        result_html += `<p class="test-row"><b>질문:</b>${item.question}<br/><b>역량 키우기:</b>${item.desc} <br/> <b>검색키워드</b> : ${item.keyword}</p><br/><hr/>`
+        result_html += `<p class="test-row"><b>질문:</b>${item.question}<br/><b>역량 키우기:</b>${item.desc} <br/> <b>검색키워드</b> : ${item.keyword}</p><hr/>`
       })
 
       no_answer_result.innerHTML = result_html
