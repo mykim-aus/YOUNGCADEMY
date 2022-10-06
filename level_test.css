@@ -58,6 +58,7 @@ header {
 }
 
 .btn {
+    -webkit-tap-highlight-color :transparent;
     margin: 10px;
     height: 150px;
     width: 150px;
