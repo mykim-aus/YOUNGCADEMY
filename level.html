@@ -55,8 +55,8 @@
       <a class="start-btn btn-blue" onclick="startTest('front')">프론트엔드(리액트 기반)역량 파악 테스트</a>
       <a class="start-btn" onclick="startTest('back')">백엔드 및 데브옵스 역량 파악 테스트 (준비중)</a>
       <div id="notice">
-        해당 테스트는 웹개발자로서 구현에 초점을 둔 역량 테스트 양식 입니다.<br/><br/>
-        더 좋은 개발자, 더 높은 연봉을 받기 위해서는 본인이 좋아하는 영역의 디테일한 부분에 대한 역량을 더욱 키워보세요.<br/>
+        해당 테스트는 웹개발자로서 기능구현에 필요한 역량에 초점을 둔 테스트 양식 입니다.<br/><br/>
+        단순히 본인이 놓친것을 확인하고 역량을 채워보는 용도로 사용 해보세요!<br/>
       </div>
     </div>
 
@@ -70,7 +70,7 @@
     </div>
 
     <div id="result-screen" class="order">
-      <h1>테스트 결과</h1>
+      <h1 style="margin:10px 0 0 0; font-size: 40px;">테스트 결과</h1>
       <h3 id="test-result"></h3>
       <div>
         <div id="no-answer-result">
@@ -456,7 +456,7 @@
         message = "처음부터 천천히 한단계씩 성장 해보세요. 해당 내용을 모두 이해 하는데 평균 3~6개월이 소요 됩니다.<br/>아래의 결과표를 참고하여 부족한 부분을 채워보세요."
       }
 
-      test_result.innerHTML = `<p id="average">${average}%의 이해도</p>${message}`
+      test_result.innerHTML = `<p id="average"><span class="focus">${average}%</span>의 이해도</p>${message}`
       
 
       let result_html = ""
