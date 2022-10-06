@@ -95,6 +95,10 @@ header {
     font-weight: 400;
 }
 
+#average {
+    font-weight: 800;
+    font-size: 30px;
+}
 
 @media ( max-width: 768px ) {
     #footer-banner {

@@ -22,7 +22,7 @@
   
   <div id="container">
     <div id="main-screen" class="order">
-      <h1>나의 웹개발 기초역량 파악하기</h1>
+      <h1>웹개발 기초역량 파악 테스트</h1>
       <a id="start-test" onclick="startTest()">테스트하기</a>
       <div id="notice">
         해당 테스트는 웹개발자로서 가지고 있어야 할 기본 역량을 테스트 하는것 입니다.<br/><br/>
@@ -215,6 +215,7 @@
   
   let count = 1;
   let is_get_job = true;
+  let true_count =0;
   test_question.innerText = questions[0].question
   all_question_count.innerText = questions.length
 
@@ -230,22 +231,39 @@
 
     if(res === false) {
       no_answers.push(questions[count-1])
+    }else{
+      true_count++
     }
 
     questions[count - 1].answer = res
     count++
 
     if(count > questions.length) {
-      if(is_get_job) {
-        test_result.innerHTML = "취업을 해도 기능구현에 무리가 없는 단계군요! 취업성공을 기원합니다."
-      }else{
-        test_result.innerHTML = "아직 취업을 위한 기본역량이 부족 할 수 있어요.<br/>아래의 결과표에서 본인이 부족한 부분을 파악하고 역량을 향상 시켜보세요."
+      const average = Math.round(true_count / questions.length * 100);
+      let message = ""
+
+      if (average === 100) {
+        message = "지금 바로 취업을 해도 기능 구현에 큰 문제가 없어요."
+      } else if (average >= 90) {
+        message = "지금 바로 취업을 해도 기능 구현에 큰 문제가 없어요.<br/>아래의 결과표를 참고하여 부족한 부분을 채워보세요."
+      }else if (average >= 70) {
+        message = "한달이면 부족한 역량을 채울수 있어요!<br/>아래의 결과표를 참고하여 부족한 부분을 채워보세요."
+      }else if (average >= 50) {
+        message = "두달이면 부족한 역량을 채울수 있어요!<br/>아래의 결과표를 참고하여 부족한 부분을 채워보세요."
+      }else if (average >= 30) {
+        message = "세달이면 부족한 역량을 채울수 있어요!<br/>아래의 결과표를 참고하여 부족한 부분을 채워보세요."
+      }else if (average < 20) {
+        message = "처음부터 천천히 한단계씩 성장 해보세요. 해당 내용을 모두 이해 하는데 평균 3~6개월이 소요 됩니다.<br/>아래의 결과표를 참고하여 부족한 부분을 채워보세요."
       }
+
+      test_result.innerHTML = `<p id="average">${average}%의 웹기초 이해도</p>${message}`
+      
 
       let result_html = ""
       no_answers.map((item)=>{
-        result_html += `<p class="test-row"><b>질문:</b>${item.question}<br/><b>역량 키우기:</b>${item.desc} <br/> <b>구글유튜브 검색키워드</b> : ${item.keyword}</p><hr/>`
+        result_html += `<p class="test-row"><b>질문:</b>${item.question}<br/><b>역량 키우기:</b>${item.desc} <br/> <b>검색키워드</b> : ${item.keyword}</p><br/><hr/>`
       })
+
       no_answer_result.innerHTML = result_html
       test.style.display = "none"
       result.style.display = "flex"
