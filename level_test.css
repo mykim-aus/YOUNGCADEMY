@@ -37,7 +37,7 @@ header {
     flex-direction: column;
 }
 
-#start-test {
+.start-btn {
     color:#fff;
     background-color: #000;
     border-color: #000;
@@ -45,6 +45,11 @@ header {
     font-size: 25px;
     padding: 20px;
     cursor: pointer;
+    margin: 10px;
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
+    font-style: none;
 }
 
 #test-screen, #result-screen {
@@ -100,11 +105,23 @@ header {
     font-size: 30px;
 }
 
+.btn-pink {
+    background-color: #d53369;
+    height: 800;
+}
+
+.btn-blue {
+    background-color: #3898e1;
+    height: 800;
+    color: black;
+    font-weight: bold;
+}
+
 @media ( max-width: 768px ) {
     #yotube-video {
         width: 100%;
     }
-    
+
     #footer-banner {
         position: fixed;
         bottom: 0;

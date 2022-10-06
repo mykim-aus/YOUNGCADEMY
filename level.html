@@ -17,13 +17,15 @@
       />
     </svg>
     
-    <span id="logo-name">영카데미</span>
+    <span id="logo-name">개발역량 파악 테스트</span>
   </header>
   
   <div id="container">
     <div id="main-screen" class="order">
-      <h1>웹개발 기초역량 파악 테스트</h1>
-      <a id="start-test" onclick="startTest()">테스트하기</a>
+      
+      <a class="start-btn btn-pink" onclick="startTest('basic')">웹개발자 기초역량 파악 테스트</a>
+      <a class="start-btn btn-blue" onclick="startTest('front')">프론트엔드(리액트 기반)역량 파악 테스트</a>
+      <!-- <a class="start-btn" onclick="startTest()">백엔드 및 데브옵스 역량 파악 테스트 (준비중)</a> -->
       <div id="notice">
         해당 테스트는 웹개발자로서 가지고 있어야 할 기본 역량을 테스트 하는것 입니다.<br/><br/>
         더 좋은 개발자, 더 높은 연봉을 받기 위해서는 본인이 좋아하는 영역의 디테일한 부분에 대한 역량을 더욱 키워보세요.<br/>
@@ -48,6 +50,7 @@
         </div>
       </div>
       <h1>개발자 구글링 꿀팁 영상</h1>
+      <a class="start-btn btn-pink" href="https://youngcade.me/level.html">다른 테스트 하기</a>
       <iframe id="yotube-video" style="padding:10px;" width="768" height="315" src="https://www.youtube.com/embed/oDkJAKRof5c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <a id="footer-banner" href="https://youngcade.me/"><img src="young.gif"/></a>
     </div>
@@ -58,7 +61,7 @@
 </html>
 
 <script>
-  const questions = [{
+  const basic_questions = [{
     'question' : 'HTML과 CSS를 이용하여 화면의 레이아웃을 만들 수 있나요 ?',
     'desc' : 'HTML, CSS 기초지식을 배워보고 본인만의 간단한 웹사이트를 구현 해보세요.',
     'keyword' : 'HTML, CSS 튜토리얼',
@@ -137,12 +140,6 @@
     'answer' : false,
     'required' : false,
   },{
-    'question' : 'SPA(React,Vue)를 배우며 컴포넌트,상태관리,SSR,CSR의 개념을 이해 했나요 ?',
-    'desc' : '프론트엔드 개발자가 아니라면 필수로 배워야 하는 내용은 아니지만 만약 사용한다면 SPA와 렌더링의 개념을 명확하게 이해 해보세요.',
-    'keyword' : 'SPA란 무엇인가',
-    'answer' : false,
-    'required' : false,
-  },{
     'question' : 'API문서가 무엇인지 알고 있나요? API문서를 통해서 특정 파라미터값을 넘기라고 하는게 무슨말인지 이해 하나요?',
     'desc' : 'API문서를 이해 하지 못한다는것은 백엔드개발자와 소통하지 못하는것을 의미 합니다. 기회가 된다면 본인이 직접 백엔드 API를 만들면서 Swagger등을 이용하여 API문서를 직접 만들어보세요.',
     'keyword' : 'API문서 보는법',
@@ -203,7 +200,135 @@
     'answer' : false,
     'required' : false,
   }]
-  let no_answers = []
+
+  const front_questions = [{
+    'question' : 'SPA와 MPA가 무엇인지 그리고 차이를 알고 있나요?',
+    'desc' : '웹개발에는 크게 두가지 방식이 있습니다. 회사에서 어떤 방법을 사용 할 지 모르니 두가지 개념을 모두 파악 해보세요.',
+    'keyword' : 'SPA란 무엇인가, MPA란 무엇인가',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '상황에 따라 배열함수와 ECMA6문법을 적절히 사용 하고 있나요?',
+    'desc' : '배열함수와 ECMA6문법을 통해 더욱 간결한소스를 만들어볼수 있어요. 처음 듣는다면 검색을 통해 본인의 소스에 적용 시켜보세요.',
+    'keyword' : '배열함수, ECMA6',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '리액트의 컴포넌트와 JSX가 무엇인지 설명 할 수 있나요?',
+    'desc' : '리액트의 컴포넌트와 JSX가 무엇인지 정리 해보세요.',
+    'keyword' : '리액트 컴포넌트, 리액트 JSX',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '백엔드에 API요청을 통해 상품리스트를 배열로 받아오고 있습니다. 해당 배열크기만큼 반복을 통해 상품카드 컴포넌트를 반복하여 보여줄수 있나요?',
+    'desc' : 'API가 무엇인지 이해하고 JSX문법 안에서 JS코드를 사용 하는 방식에 대해 파악해보세요.',
+    'keyword' : '리액트 JSX',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '상품리스트에 포함되는 상품정보카드 컴포넌트를 제작하고 해당 컴포넌트에는 상품에 대한정보가 props로 넘어가는 형태로 구현이 되어야합니다. 구현이 가능한가요 ?',
+    'desc' : '컴포넌트 구현시 props를 받아오는 방법에 대해 이해하고 적용 시켜보세요.',
+    'keyword' : '리액트 컴포넌트 props',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '상태관리가 간단하게 무엇인지 설명 할 수 있나요? 가능하다면 상품리스트의 상품정보를 장바구니에 담는경우 장바구니의 값을 상태관리 모듈(Redux,Mobx,Recoil etc)을 적용 시킬수 있나요 ?',
+    'desc' : '컴포넌트 구현시 props를 받아오는 방법에 대해 이해하고 적용 시켜보세요.',
+    'keyword' : '리액트 컴포넌트 props',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'API를 호출하여 useState로 정의 된 변수에 값을 담고 있습니다. 화면에 내용을 보여주고 있는데 간혈적으로 에러가 발생합니다. 원인과 해결방법을 제시 할 수 있나요?',
+    'desc' : '리액트의 라이프사이클에 대해서 이해하고 useState와 useEffect의 개념에 대해 이해 해보세요.',
+    'keyword' : '리액트 라이프사이클, 리액트 useState, useEffect',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'Input에 있는 사용자의 입력값을 가지고 오고싶다면 어떤 ReactHook을 사용 할 수 있는지 아나요?',
+    'desc' : 'useRef의 개념에 대해 이해 해보세요.',
+    'keyword' : '리액트 useRef',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '우리의 변수가 실제 컴퓨터 메모리에 어떤식으로 저장 되고 불러와서 사용하는지 대략적으로 이해 하고 있나요?',
+    'desc' : '변수의 메모리 할당 방식을 이해 해보세요.',
+    'keyword' : '변수의 메모리 할당',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'useMemo와 useCallback 훅을 왜 사용하는지 설명 할 수 있나요?',
+    'desc' : 'useMemo와 useCallback을 이해 하기 위해서는 메모리에 값을 저장 하는 개념을 먼저 이해하고 찾아보세요.',
+    'keyword' : 'useMemo, useCallback',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '프론트에서 API요청을 보내는 소스코드가 지속적으로 중복 되고 있습니다. 해당 API요청을 CustomHook으로 만들수 있나요?',
+    'desc' : 'React Custom Hook에 대해 이해하고 적용 하세요.',
+    'keyword' : 'React custom hook',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'SSR과 CSR의 의미를 알고 있나요? 알고 있다면 Next.js의 사용 경험이 있나요?',
+    'desc' : 'SSR과 CSR의 차이점을 이해하고 Next.js로 프로젝트를 생성하여 다양한 컴포넌트를 만들어보세요.',
+    'keyword' : 'SSR과 CSR, Next.js',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'Typescript가 무엇인지 왜 사용하는지 설명 할 수 있나요?',
+    'desc' : '타입스크립트가 무엇인지 이해하고 본인의 프로젝트에 적용 시켜보세요.',
+    'keyword' : 'Typescript',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'Eslint와 Prettier가 무엇인지 왜 사용하는지 설명 할 수 있나요?',
+    'desc' : '현업에서 코드스타일은 매우 중요합니다. Eslint와 Prettier를 본인 소스코드에 적용시켜 경험 해보세요.',
+    'keyword' : 'Eslint, Prettier',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'CSS프레임워크(Bootstrap, tailwind etc)를 사용 해본 경험이 있나요? 사용을 한다면 가장 큰 이유가 무엇일까요?',
+    'desc' : 'CSS프레임워크 도입의 장점과 단점을 파악하고 본인의 프로젝트에 적용 시켜보세요.',
+    'keyword' : 'CSS프레임워크, Bootstrap 또는 tailwind etc',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'CSS전처리기를 사용하는 이유와 CSS와 차이점이 무엇인지 설명 할 수 있나요?',
+    'desc' : 'CSS전처리기를 사용하는 이유를 파악하고 본인의 프로젝트에 적용 시켜보세요.',
+    'keyword' : 'sass(SCSS), css전처리기',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '브라우저 데이터 저장방식(쿠키,세션스토리지등)이 무엇인지 알고 있나요 ?',
+    'desc' : '기능구현에 있어 브라우저 스토리지에 다양한 값을 저장 할 수 있습니다. 쿠키와 어떤 스토리지가 있는지 파악 해보세요.',
+    'keyword' : '브라우저 저장방식',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'XSS,CSRF가 무엇인지 알고 있나요? 프론트 영역에서 해당 공격을 막기 위한 방법이 무엇이 있을까요?',
+    'desc' : 'XSS,CSRF의 개념에 대해 이해 해보세요.',
+    'keyword' : 'XSS,CSRF',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '비동기가 무엇인지 설명 할 수 있나요?',
+    'desc' : '비동기실행과 자바스크립트의 동작과정에 대해 이해 해보세요.',
+    'keyword' : '비동기실행, 자바스크립트 동작과정',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'Promise와 Async/Await의 차이점은 무엇인지 설명 할 수 있나요?',
+    'desc' : '비동기를 해결 위한 방식이 무엇이 있는지 차이점이 무엇인지 이해 해보세요.',
+    'keyword' : 'Promise, Async/Await',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '변수선언시 지역변수, 전역변수의 범위 및 스코프체인의 개념을 이해 하나요?',
+    'desc' : '변수범위는 실개발시 매우 중요하니 스코프체인의 개념을 이해하고 내가 만든변수의 범위가 어디까지인지 파악하면서 개발 해보세요.',
+    'keyword' : '스코프체인, 지역변수/전역변수',
+    'answer' : false,
+    'required' : true,
+  }]
+  
   const answer_count = document.querySelector("#answer-count")
   const all_question_count = document.querySelector("#all-question-count")
   const test_question = document.querySelector("#test-question")
@@ -213,18 +338,30 @@
   const test_result = document.querySelector('#test-result')
   const no_answer_result = document.querySelector('#no-answer-result')
   
-  let count = 1;
-  let is_get_job = true;
-  let true_count =0;
-  test_question.innerText = questions[0].question
-  all_question_count.innerText = questions.length
+  let no_answers = []
+  let count = 1
+  let is_get_job = true
+  let true_count =0
+  let test_type = ""
+  let question = []
 
-  function startTest(){
+  function startTest(type){
+    test_type = type;
+
+    if (test_type === "basic") {
+      questions = basic_questions;
+    } else if (test_type === "front") {
+      questions = front_questions;
+    }
+
+    test_question.innerText = questions[0].question
+    all_question_count.innerText = questions.length
     main.style.display = "none"
     test.style.display = "flex"
   }
 
   function answer(res) {
+
     if(res === false && questions[count-1].required) {
       is_get_job = false
     }
@@ -272,4 +409,6 @@
     test_question.innerHTML = questions[count - 1].question
     answer_count.innerText = count
   }
+
+
 </script>
