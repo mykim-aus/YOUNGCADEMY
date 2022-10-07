@@ -19,6 +19,7 @@
   <meta name="msapplication-TileImage" content="/favicon/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
   <!-- Google tag (gtag.js) -->
+  <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLJJ6TEN01"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -83,6 +84,10 @@
       <iframe id="yotube-video" style="padding:10px;" width="768" height="315" src="https://www.youtube.com/embed/oDkJAKRof5c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       <!-- <a id="footer-banner" href="https://youngcade.me/"><img src="young.gif"/></a> -->
     </div>
+    
+    <a id="share" href="javascript:sendLinkKakao()" id="kakao-link-btn" title="카카오톡으로 공유">
+      <img src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png" />
+    </a>
 
     <footer>
       Created by <a href="https://youngcade.me/">YOUNGCADEMY</a>
@@ -92,7 +97,32 @@
   </div>
 </body>
 </html>
-
+<script>
+  Kakao.init('35a379192d1a6efc93aebc955bbb9fbe');
+  function sendLinkKakao(){
+      Kakao.Link.sendDefault({
+        objectType: 'feed',
+        content: {
+          title: '웹개발자 역량파악 테스트',
+          description: '웹개발자 역량 파악을 통해 본인의 부족한 부분을 확인 해보세요.',
+          imageUrl: '',
+          link: {
+            mobileWebUrl: 'https://youngcade.me/level.html',
+            webUrl: 'https://youngcade.me/level.html'
+          }
+        },
+        buttons: [       
+          {
+            title: '링크 열기',
+            link: {
+              mobileWebUrl: 'https://youngcade.me/level.html',
+              webUrl: 'https://youngcade.me/level.html'
+            }
+          }
+        ]
+      }); 
+  }
+</script>
 <script>
   const back_questions = []
 
