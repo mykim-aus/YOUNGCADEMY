@@ -53,8 +53,9 @@
     <div id="main-screen" class="order">
       
       <a class="start-btn btn-pink" onclick="startTest('basic')">웹개발자 기초역량 파악 테스트</a>
-      <a class="start-btn btn-blue" onclick="startTest('front')">프론트엔드(리액트 기반)역량 파악 테스트</a>
-      <!-- <a class="start-btn" onclick="startTest('back')">백엔드 및 데브옵스 역량 파악 테스트 (준비중)</a> -->
+      <a class="start-btn btn-blue" onclick="startTest('front')">프론트엔드(리액트 기반) 기초역량 파악 테스트</a>
+      <a class="start-btn" onclick="startTest('back')">백엔드 기초역량 파악 테스트</a>
+      <a class="start-btn btn-purple" onclick="startTest('dev')">데브옵스 기초역량 파악 테스트</a>
       <div id="notice">
         해당 테스트는 웹개발자로서 기능구현에 필요한 역량에 초점을 둔 테스트 양식 입니다.<br/><br/>
         단순히 본인이 놓친것을 확인하고 역량을 채워보는 용도로 사용 해보세요!<br/>
@@ -124,7 +125,73 @@
   }
 </script>
 <script>
-  const back_questions = []
+  const back_questions = [{
+    'question' : '백엔드언어를 사용하여 사용자에게 HTML, JSON등 다양한 형태로 값을 응답할수 있나요?',
+    'desc' : '백엔드 언어를 사용한 웹개발 기본지식이 부족 한 상태입니다. 다양한 형태로 클라이언트에게 응답 해보는 연습을 해보세요.',
+    'keyword' : '{{백엔드언어}} JSON 응답, {{백엔드언어}} HTML 응답',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '백엔드언어 프레임워크에서 제공하는 HTML제작 템플릿(EJS, Blade etc)을 이해하고 사용 하시나요?',
+    'desc' : '템플릿 사용법을 적절하게 이해하고 사용 하는것은 중요합니다. 단순 HTML을 직접 만드는것보다 훨씬 생산성이 높아집니다.',
+    'keyword' : '{{백엔드언어}} {{템플릿명}}',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'API설계 방법에 대해 이해 하고 있나요?',
+    'desc' : '백엔드 개발자에게 API설계는 필수적으로 이해하고 있어야 하는 내용입니다. API설계에 대해 검색해보고 만들어보세요.',
+    'keyword' : '{{백엔드언어}} API개발',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'API설계 이후 사용자에게 적절한 문서를 제공 하고 있나요?',
+    'desc' : 'API는 설계 이후 사용자(프론트엔드 개발자 등)에게 적절한 문서를 제공하여 소통이 필요합니다. Swagger등을 이용하여 자동화 시켜볼수도 있습니다.',
+    'keyword' : 'API문서 제작, Swagger',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'RDMBS(Mysql, Oracle etc)의 기본적인 모델링과 다양한 쿼리문(select,insert,update,delete,join,where etc)을 직접 만들 수 있나요?',
+    'desc' : '백엔드 개발자에게 RDMBS중 하나는 무조건 이해가 필요하고 기본적인 모델링 능력이 필요합니다.',
+    'keyword' : 'ex) mysql 튜토리얼',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'RDBMS의 트랜젝션이 무엇인지 설명 할 수 있나요?',
+    'desc' : 'DB를 사용하며 트랜젝션은 필수적으로 이해가 필요합니다.',
+    'keyword' : '{{DB명}} 트랜젝션',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'SQL Injection이 무엇인지 이해하고 방어방법을 알고 있나요?',
+    'desc' : '백엔드 개발에 있어 보안지식은 필수 입니다. SQL Injection뿐 아니라 다양한 보안이슈가 무엇이 있는지 확인하고 방어기법을 공부해보세요.',
+    'keyword' : 'SQL Injection, 웹보안, OWASP',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'ORM이 무엇인지 설명과 이용을 할 수 있나요?',
+    'desc' : '협업과 관리를 위하여 ORM도입을 하는 회사가 많기때문에 ORM에 대한 이해도를 가지는것을 추천 합니다.',
+    'keyword' : 'ORM이란, ORM도입',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'NoSQL이 무엇인지 RDBMS와는 어떤 차이점이 있는지 설명 할 수 있나요?',
+    'desc' : '적절한 상황에 NoSQL을 도입 해야하는경우가 발생하니 NoSQL에 대한 이해도와 간단하게 사용 해보는것을 추천 합니다.',
+    'keyword' : 'NoSQL',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '세션과 토큰이 무엇인지 이해 하고 두가지 방법 모두 구현이 가능한가요?',
+    'desc' : '세션과 토큰은 로그인 구현시 필수적으로 이해 하고 있어야 하는 내용입니다. 두가지 방법 모두 구현을 해보는걸 추천 합니다.',
+    'keyword' : '{{백엔드 언어}} 세션 구현, {{백엔드 언어}} JWT,토큰 구현',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '소켓통신이 무엇인지 어느상황에 사용하는지 설명 할 수 있나요?',
+    'desc' : '개발을 진행하면 소켓통신을 한번쯤 경험 할 가능성이 높으니 기회가 되면 사용 해보는것을 추천합니다.',
+    'keyword' : '소켓통신',
+    'answer' : false,
+    'required' : true,
+  }]
 
   const basic_questions = [{
     'question' : '서버와 클라이언트의 의미를 설명 할 수 있나요 ?',
@@ -459,16 +526,17 @@
   let question = []
 
   function startTest(type){
-    if(type === "back"){
-      alert('아직 준비중에 있어요.. ㅠㅠ')
-      return false
-    }
     test_type = type;
 
     if (test_type === "basic") {
       questions = basic_questions;
     } else if (test_type === "front") {
       questions = front_questions;
+    } else if (test_type === "back") {
+      questions = back_questions;
+    } else if (test_type === "dev") {
+      alert("아직 준비중이에요.. ㅠㅠ")
+      return false
     }
 
     test_question.innerText = questions[0].question
