@@ -125,6 +125,104 @@
   }
 </script>
 <script>
+  const devops_questions = [{
+    'question' : '리눅스의 기본 커맨드 사용을 할 수 있나요 ?',
+    'desc' : '커맨드 환경에서의 리눅스 기본 명령어를 능숙하게 사용 할 수 있어야 합니다. 리눅스 기본 명령어에 대해 공부 해보세요.',
+    'keyword' : '리눅스 기본 명령어',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '환경변수가 무엇인지 이해하고 설정을 할 수 있나요?',
+    'desc' : '환경변수에 이해가 부족하면 오류를 해결 못하는 상황이 발생 할 수 있어요.',
+    'keyword' : '리눅스 환경변수',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '리눅스의 권한에 대해 이해하고 권한을 필요한경우 변경 할 수 있나요?',
+    'desc' : '리눅스에서 권한에 대한 이해는 필수로 꼭 이해가 필요 합니다.',
+    'keyword' : '리눅스 권한',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '스크립트가 무엇인지 그리고 실제로 사용 경험이 있나요?',
+    'desc' : '스크립트 작성이 필요한경우가 발생 할 수 있으니 스크립트를 하나쯤은 공부를 해보는것을 추천합니다.',
+    'keyword' : '리눅스 쉘스크립트',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'IP,HTTP,TCP,UDP,DNS등의 기본적인 네트워크의 개념을 이해하고 있나요 ?',
+    'desc' : '깊은 네트워크 내용이 아니더라도 간단한 네트워크 지식이 필수적으로 이해 하고 있는것을 추천 합니다.',
+    'keyword' : '네트워크 기초',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'Nginx, Apache가 무엇인지 왜 사용 하는지 설명 할 수 있나요?',
+    'desc' : '웹서버와 WAS의 개념을 이해 해보세요.',
+    'keyword' : '웹서버 WAS',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '데몬이 무엇인지 이해하고 서비스를 데몬으로 실행 시킬수 있나요?',
+    'desc' : '데몬에 대한 개념을 이해 해보세요.',
+    'keyword' : '리눅스 데몬',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '방화벽에 대한 설정을 할 수 있고 보안에 대한 기본적인 지식을 공부 하고 있나요 ?',
+    'desc' : '서버관리에 있어 보안은 매우 중요합니다. 방화벽을 설정 하는법, 설치 된 프로그램의 보안 이슈 체크, 최근 보안동향을 항시 체크하고 보안은 필수입니다.',
+    'keyword' : '리눅스 데몬',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'GIT과 GITHUB의 차이점을 알고 GIT의 기본명령어에 대해 이해 하고 있나요?',
+    'desc' : 'GIT의 개념을 필수로 필요하니 꼭 사용을 해보세요.',
+    'keyword' : 'GIT튜토리얼, GITHUB란',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '도커가 무엇인지 설명 할 수 있나요?',
+    'desc' : '도커를 왜 사용하는지 이해 해보세요.',
+    'keyword' : '도커',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '도커로 올라간 컨테이너와 포트를 연결하여 웹서비스를 실행하고 bash쉘을 통해 안에 접근 할 수 있나요?',
+    'desc' : '도커에 이해도도 중요하지만 컨테이너를 올리고 다양한 서비스를 연결 해보세요.',
+    'keyword' : '도커',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'AWS,GCP등에서 서버를 호스팅하여 로드밸런싱을 경험 해본적이 있나요?',
+    'desc' : '로드밸런싱을 위한 다양한 서비스가 제공 되고 있으니 로드밸린싱이 무엇인지 이해하고 사용 해보는것을 추천합니다.',
+    'keyword' : '로드밸런싱, AWS로드밸런싱 서비스',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'AWS,GCP등에서 서버를 호스팅에 개발소스코드를 배포 하는 전략을 만들수 있나요?',
+    'desc' : '소스코드를 배포 하기 위한 다양한 전략과 클라우드서비스 업체에서 다양한 배포서비스를 제공 하고 있습니다. 어떤방법들이 있는지 확인 해보고 직접 배포까지 진행을 해보세요.',
+    'keyword' : 'Node.js AWS배포, 배포전략',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '단위테스트가 무엇인지 이해하고 배포 전 테스트를 진행 한다는게 무엇인지 이해하고 사용해본 경험이 있나요?',
+    'desc' : '자동화 된 단위테스트로 서비스를 배포 전 미리 문제를 파악 하는것은 매우 중요합니다. 단위테스트를 도입하고 테스트를 진행 해보세요.',
+    'keyword' : '배포 단위테스트',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : 'CI/CD가 무엇인지 이해하고 설명 할 수 있나요?',
+    'desc' : 'CI/CD가 무엇인지 파악하고 배포파이프라인을 구축 해보는것은 필수 입니다. 다양한 전략이 있으니 직접 해보는것을 추천합니다.',
+    'keyword' : 'CI/CD란',
+    'answer' : false,
+    'required' : true,
+  },{
+    'question' : '캐싱이 무엇인지 이해하고 정적인 데이터를 별도의 서비스 관리 하는 개념을 이해 하고 있나요?',
+    'desc' : '이미지등 다양한 정적데이터를 별도의 서버에서 관리하고 캐싱까지 이용하는 개념을 이해 해보세요.',
+    'keyword' : '아마존 S3, HTTP 캐싱',
+    'answer' : false,
+    'required' : true,
+  }]
+
   const back_questions = [{
     'question' : '백엔드언어를 사용하여 사용자에게 HTML, JSON등 다양한 형태로 값을 응답할수 있나요?',
     'desc' : '백엔드 언어를 사용한 웹개발 기본지식이 부족 한 상태입니다. 다양한 형태로 클라이언트에게 응답 해보는 연습을 해보세요.',
@@ -523,7 +621,7 @@
   let is_get_job = true
   let true_count =0
   let test_type = ""
-  let question = []
+  let questions = []
 
   function startTest(type){
     test_type = type;
@@ -535,8 +633,7 @@
     } else if (test_type === "back") {
       questions = back_questions;
     } else if (test_type === "dev") {
-      alert("아직 준비중이에요.. ㅠㅠ")
-      return false
+      questions = devops_questions;
     }
 
     test_question.innerText = questions[0].question
