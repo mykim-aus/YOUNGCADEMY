@@ -1,0 +1,30 @@
+.images {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    color: black;
+}
+
+.images-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.images-row img {
+    width: 500px;
+    height: 300px;
+}
+
+.images-row h1 {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 500;
+}
+
+@media ( max-width: 768px ) {
+    .images {
+        flex-direction: column;
+        align-items: center;
+    }
+}
