@@ -158,6 +158,10 @@ footer {
 }
 
 @media ( max-width: 768px ) {
+    #share {
+        bottom: 20px;
+    }
+    
     #yotube-video {
         width: 100%;
     }
