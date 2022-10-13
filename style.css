@@ -16,6 +16,12 @@
     height: 300px;
 }
 
+.images-row iframe {
+    width: 500px;
+    height: 300px;
+    margin-bottom: 20px;
+}
+
 .images-row h1 {
     text-align: center;
     font-size: 26px;
