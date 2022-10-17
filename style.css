@@ -33,4 +33,8 @@
         flex-direction: column;
         align-items: center;
     }
+
+    .images-row img, .images-row iframe {
+        width: 300px;
+    }
 }
