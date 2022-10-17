@@ -11,7 +11,7 @@
     align-items: center;
 }
 
-.images-row img {
+.images-row img, .images-row iframe {
     width: 500px;
     height: 300px;
 }
